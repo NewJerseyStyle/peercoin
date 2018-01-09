@@ -15,10 +15,10 @@
 #include <string>
 #include "uint256.h"
 
-#define XXXOIN_PORT  9901
-#define RPC_PORT     9902
-#define TESTNET_PORT 9903
-#define TESTNET_RPC_PORT 9904
+#define XXXOIN_PORT  9905
+#define RPC_PORT     9906
+#define TESTNET_PORT 9907
+#define TESTNET_RPC_PORT 9908
 
 extern bool fTestNet;
 extern unsigned char pchMessageStart[4];
