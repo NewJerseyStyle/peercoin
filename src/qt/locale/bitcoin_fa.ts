@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About Peercoin</source>
-        <translation>در مورد Peercoin</translation>
+        <source>About Xpcoin</source>
+        <translation>در مورد Xpcoin</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;Peercoin&lt;/b&gt; version</source>
-        <translation>نسخه Peercoin</translation>
+        <source>&lt;b&gt;Xpcoin&lt;/b&gt; version</source>
+        <translation>نسخه Xpcoin</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -29,7 +29,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+0"/>
-        <source>The Peercoin developers</source>
+        <source>The Xpcoin developers</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -62,8 +62,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your Peercoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>این آدرسها، آدرسهای peercoin شما برای دریافت وجوه هستند. شما ممکن است آدرسهای متفاوت را به هر گیرنده اختصاص دهید که بتوانید مواردی که پرداخت می کنید را پیگیری نمایید</translation>
+        <source>These are your Xpcoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>این آدرسها، آدرسهای xpcoin شما برای دریافت وجوه هستند. شما ممکن است آدرسهای متفاوت را به هر گیرنده اختصاص دهید که بتوانید مواردی که پرداخت می کنید را پیگیری نمایید</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -77,8 +77,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a Peercoin address</source>
-        <translation>پیام را برای اثبات آدرس Peercoin خود امضا کنید</translation>
+        <source>Sign a message to prove you own a Xpcoin address</source>
+        <translation>پیام را برای اثبات آدرس Xpcoin خود امضا کنید</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -102,8 +102,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified Peercoin address</source>
-        <translation>یک پیام را برای حصول اطمینان از ورود به سیستم با آدرس peercoin مشخص، شناسایی کنید</translation>
+        <source>Verify a message to ensure it was signed with a specified Xpcoin address</source>
+        <translation>یک پیام را برای حصول اطمینان از ورود به سیستم با آدرس xpcoin مشخص، شناسایی کنید</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -117,7 +117,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your Peercoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Xpcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -244,8 +244,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PEERCOINS&lt;/b&gt;!</source>
-        <translation>هشدار: اگر wallet رمزگذاری شود و شما passphrase را گم کنید شما همه اطلاعات peercoin را از دست خواهید داد.</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR XPCOINS&lt;/b&gt;!</source>
+        <translation>هشدار: اگر wallet رمزگذاری شود و شما passphrase را گم کنید شما همه اطلاعات xpcoin را از دست خواهید داد.</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -271,8 +271,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-56"/>
-        <source>Peercoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your peercoins from being stolen by malware infecting your computer.</source>
-        <translation>Peercoin هم اکنون بسته می‌شود تا فرایند رمزگذاری را تمام کند. به خاطر داشته باشید که رمزگذاری کیف پولتان نمی‌تواند به طور کامل بیتیکون‌های شما را در برابر دزدیده شدن توسط بدافزارهایی که رایانه شما را آلوده می‌کنند، محافظت نماید.</translation>
+        <source>Xpcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your xpcoins from being stolen by malware infecting your computer.</source>
+        <translation>Xpcoin هم اکنون بسته می‌شود تا فرایند رمزگذاری را تمام کند. به خاطر داشته باشید که رمزگذاری کیف پولتان نمی‌تواند به طور کامل بیتیکون‌های شما را در برابر دزدیده شدن توسط بدافزارهایی که رایانه شما را آلوده می‌کنند، محافظت نماید.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -370,7 +370,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about Peercoin</source>
+        <source>Show information about Xpcoin</source>
         <translation>نمایش اطلاعات در مورد بیتکویین</translation>
     </message>
     <message>
@@ -415,13 +415,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a Peercoin address</source>
+        <source>Send coins to a Xpcoin address</source>
         <translation>سکه ها را به آدرس bitocin ارسال کن</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for Peercoin</source>
-        <translation>انتخابهای پیکربندی را برای peercoin اصلاح کن</translation>
+        <source>Modify configuration options for Xpcoin</source>
+        <translation>انتخابهای پیکربندی را برای xpcoin اصلاح کن</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -451,7 +451,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>Peercoin</source>
+        <source>Xpcoin</source>
         <translation>یت کویین </translation>
     </message>
     <message>
@@ -476,8 +476,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About Peercoin</source>
-        <translation>در مورد peercoin</translation>
+        <source>&amp;About Xpcoin</source>
+        <translation>در مورد xpcoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -496,12 +496,12 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your Peercoin addresses to prove you own them</source>
+        <source>Sign messages with your Xpcoin addresses to prove you own them</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified Peercoin addresses</source>
+        <source>Verify messages to ensure they were signed with specified Xpcoin addresses</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -532,12 +532,12 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+47"/>
-        <source>Peercoin client</source>
-        <translation>مشتری Peercoin</translation>
+        <source>Xpcoin client</source>
+        <translation>مشتری Xpcoin</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to Peercoin network</source>
+        <source>%n active connection(s) to Xpcoin network</source>
         <translation><numerusform>در صد ارتباطات فعال بیتکویین با شبکه %n</numerusform></translation>
     </message>
     <message>
@@ -651,8 +651,8 @@ Address: %4
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid Peercoin address or malformed URI parameters.</source>
-        <translation>URI قابل تحلیل نیست. این خطا ممکن است به دلیل ادرس PEERCOIN اشتباه یا پارامترهای اشتباه URI رخ داده باشد</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Xpcoin address or malformed URI parameters.</source>
+        <translation>URI قابل تحلیل نیست. این خطا ممکن است به دلیل ادرس XPCOIN اشتباه یا پارامترهای اشتباه URI رخ داده باشد</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -666,8 +666,8 @@ Address: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. Peercoin can no longer continue safely and will quit.</source>
-        <translation>خطا روی داده است. Peercoin نمی تواند بدون مشکل ادامه دهد و باید بسته شود</translation>
+        <source>A fatal error occurred. Xpcoin can no longer continue safely and will quit.</source>
+        <translation>خطا روی داده است. Xpcoin نمی تواند بدون مشکل ادامه دهد و باید بسته شود</translation>
     </message>
 </context>
 <context>
@@ -732,8 +732,8 @@ Address: %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid Peercoin address.</source>
-        <translation>آدرس وارد شده %1 یک ادرس صحیح peercoin نیست</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Xpcoin address.</source>
+        <translation>آدرس وارد شده %1 یک ادرس صحیح xpcoin نیست</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -751,8 +751,8 @@ Address: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>Peercoin-Qt</source>
-        <translation>Peercoin-Qt</translation>
+        <source>Xpcoin-Qt</source>
+        <translation>Xpcoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -804,7 +804,7 @@ Address: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Mandatory network transaction fee per kB transferred. Most transactions are 1 kB and incur a 0.01 PPC fee. Note: transfer size may increase depending on the number of input transactions required to be added together to fund the payment.</source>
+        <source>Mandatory network transaction fee per kB transferred. Most transactions are 1 kB and incur a 0.01 XXX fee. Note: transfer size may increase depending on the number of input transactions required to be added together to fund the payment.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -814,18 +814,13 @@ Address: %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start Peercoin after logging in to the system.</source>
-        <translation>در زمان ورود به سیستم به صورت خودکار peercoin را اجرا کن</translation>
-    </message>
-    <message>
-        <location line="+46"/>
-        <source>Check this box to follow the centrally issued checkpoints.</source>
-        <translation type="unfinished"/>
+        <source>Automatically start Xpcoin after logging in to the system.</source>
+        <translation>در زمان ورود به سیستم به صورت خودکار xpcoin را اجرا کن</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start Peercoin on system login</source>
-        <translation>اجرای peercoin در زمان ورود به سیستم</translation>
+        <source>&amp;Start Xpcoin on system login</source>
+        <translation>اجرای xpcoin در زمان ورود به سیستم</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -844,7 +839,7 @@ Address: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the Peercoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Xpcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>اتوماتیک باز کردن بندر بیتکویین در روتر . این فقط در مواردی می باشد که روتر با کمک یو پ ن پ کار می کند</translation>
     </message>
     <message>
@@ -854,8 +849,8 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the Peercoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>اتصال به شبکه PEERCOIN از طریق پراکسی ساکس (برای مثال وقتی از طریق نرم افزار TOR متصل می شوید)</translation>
+        <source>Connect to the Xpcoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>اتصال به شبکه XPCOIN از طریق پراکسی ساکس (برای مثال وقتی از طریق نرم افزار TOR متصل می شوید)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -929,8 +924,8 @@ Address: %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Peercoin.</source>
-        <translation>زبان میانجی کاربر می تواند در اینجا تنظیم شود. این تنظیمات بعد از شروع دوباره RESTART در PEERCOIN اجرایی خواهند بود.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Xpcoin.</source>
+        <translation>زبان میانجی کاربر می تواند در اینجا تنظیم شود. این تنظیمات بعد از شروع دوباره RESTART در XPCOIN اجرایی خواهند بود.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -944,7 +939,7 @@ Address: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show Peercoin addresses in the transaction list or not.</source>
+        <source>Whether to show Xpcoin addresses in the transaction list or not.</source>
         <translation>تا آدرسهای bITCOIN در فهرست تراکنش نمایش داده شوند یا نشوند.</translation>
     </message>
     <message>
@@ -996,8 +991,8 @@ Address: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting Peercoin.</source>
-        <translation>این تنظیمات پس از اجرای دوباره Peercoin اعمال می شوند</translation>
+        <source>This setting will take effect after restarting Xpcoin.</source>
+        <translation>این تنظیمات پس از اجرای دوباره Xpcoin اعمال می شوند</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1015,8 +1010,8 @@ Address: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Peercoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>اطلاعات نمایش داده شده روزآمد نیستند.wallet  شما به صورت خودکار با شبکه peercoin بعد از برقراری اتصال روزآمد می شود اما این فرایند هنوز کامل نشده است.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Xpcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>اطلاعات نمایش داده شده روزآمد نیستند.wallet  شما به صورت خودکار با شبکه xpcoin بعد از برقراری اتصال روزآمد می شود اما این فرایند هنوز کامل نشده است.</translation>
     </message>
     <message>
         <location line="-124"/>
@@ -1069,7 +1064,7 @@ Address: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start peercoin: click-to-pay handler</source>
+        <source>Cannot start xpcoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1219,8 +1214,8 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Peercoin-Qt help message to get a list with possible Peercoin command-line options.</source>
-        <translation>پیام راهنمای Peercoin-Qt  را برای گرفتن فهرست گزینه های command-line نشان بده</translation>
+        <source>Show the Xpcoin-Qt help message to get a list with possible Xpcoin command-line options.</source>
+        <translation>پیام راهنمای Xpcoin-Qt  را برای گرفتن فهرست گزینه های command-line نشان بده</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1239,13 +1234,13 @@ Address: %4
     </message>
     <message>
         <location line="-104"/>
-        <source>Peercoin - Debug window</source>
-        <translation>صفحه اشکال زدایی Peercoin </translation>
+        <source>Xpcoin - Debug window</source>
+        <translation>صفحه اشکال زدایی Xpcoin </translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>Peercoin Core</source>
-        <translation> هسته Peercoin </translation>
+        <source>Xpcoin Core</source>
+        <translation> هسته Xpcoin </translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1254,8 +1249,8 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the Peercoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>فایلِ لاگِ اشکال زدایی Peercoin  را از دایرکتوری جاری داده ها باز کنید. این عملیات ممکن است برای فایلهای لاگِ حجیم طولانی شود.</translation>
+        <source>Open the Xpcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>فایلِ لاگِ اشکال زدایی Xpcoin  را از دایرکتوری جاری داده ها باز کنید. این عملیات ممکن است برای فایلهای لاگِ حجیم طولانی شود.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1264,8 +1259,8 @@ Address: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the Peercoin RPC console.</source>
-        <translation>به کنسول Peercoin RPC خوش آمدید</translation>
+        <source>Welcome to the Xpcoin RPC console.</source>
+        <translation>به کنسول Xpcoin RPC خوش آمدید</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1448,7 +1443,7 @@ Address: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a Peercoin address</source>
+        <source>Enter a Xpcoin address</source>
         <translation>آدرس بیتکویین وارد کنید</translation>
     </message>
 </context>
@@ -1513,8 +1508,8 @@ Address: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this Peercoin address</source>
-        <translation>پیام را برای اثبات آدرس PEERCOIN خود امضا کنید</translation>
+        <source>Sign the message to prove you own this Xpcoin address</source>
+        <translation>پیام را برای اثبات آدرس XPCOIN خود امضا کنید</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1549,8 +1544,8 @@ Address: %4
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified Peercoin address</source>
-        <translation>پیام را برای اطمنان از ورود به سیستم با آدرس PEERCOIN مشخص خود،تایید کنید</translation>
+        <source>Verify the message to ensure it was signed with the specified Xpcoin address</source>
+        <translation>پیام را برای اطمنان از ورود به سیستم با آدرس XPCOIN مشخص خود،تایید کنید</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1565,7 +1560,7 @@ Address: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a Peercoin address</source>
+        <source>Enter a Xpcoin address</source>
         <translation>آدرس بیتکویین وارد کنید  (bijvoorbeeld: 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
@@ -1575,7 +1570,7 @@ Address: %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter Peercoin signature</source>
+        <source>Enter Xpcoin signature</source>
         <translation>امضای BITOCOIN خود را وارد کنید</translation>
     </message>
     <message>
@@ -1649,7 +1644,7 @@ Address: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The Peercoin developers</source>
+        <source>The Xpcoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2190,7 +2185,7 @@ Address: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>Peercoin version</source>
+        <source>Xpcoin version</source>
         <translation>سخه بیتکویین</translation>
     </message>
     <message>
@@ -2200,7 +2195,7 @@ Address: %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or peercoind</source>
+        <source>Send command to -server or xpcoind</source>
         <translation>ارسال فرمان به سرور یا باتکویین</translation>
     </message>
     <message>
@@ -2220,13 +2215,13 @@ Address: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: peercoin.conf)</source>
-        <translation>(: peercoin.confپیش فرض: )فایل تنظیمی خاص </translation>
+        <source>Specify configuration file (default: xpcoin.conf)</source>
+        <translation>(: xpcoin.confپیش فرض: )فایل تنظیمی خاص </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: peercoind.pid)</source>
-        <translation>(peercoind.pidپیش فرض : ) فایل پید خاص</translation>
+        <source>Specify pid file (default: xpcoind.pid)</source>
+        <translation>(xpcoind.pidپیش فرض : ) فایل پید خاص</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2303,13 +2298,13 @@ Address: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=peercoinrpc
+rpcuser=xpcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Peercoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Xpcoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2325,7 +2320,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Peercoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. Peercoin is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Xpcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2370,8 +2365,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Peercoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Peercoin will not work properly.</source>
-        <translation>هشدار: لطفا زمان و تاریخ رایانه خود را تصحیح نمایید! اگر ساعت رایانه شما اشتباه باشد peercoin ممکن است صحیح کار نکند</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Xpcoin will not work properly.</source>
+        <translation>هشدار: لطفا زمان و تاریخ رایانه خود را تصحیح نمایید! اگر ساعت رایانه شما اشتباه باشد xpcoin ممکن است صحیح کار نکند</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2621,7 +2616,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Peercoin Alert&quot; admin@foo
     <message>
         <location line="+5"/>
         <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>گزینه ssl (به ویکیpeercoin برای راهنمای راه اندازی ssl مراجعه شود)</translation>
+        <translation>گزینه ssl (به ویکیxpcoin برای راهنمای راه اندازی ssl مراجعه شود)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2810,12 +2805,12 @@ for example: alertnotify=echo %%s | mail -s &quot;Peercoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of Peercoin</source>
-        <translation>خطا در بارگیری wallet.dat: کیف پول به ویرایش جدیدتری از Peercoin نیاز دارد</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Xpcoin</source>
+        <translation>خطا در بارگیری wallet.dat: کیف پول به ویرایش جدیدتری از Xpcoin نیاز دارد</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart Peercoin to complete</source>
+        <source>Wallet needed to be rewritten: restart Xpcoin to complete</source>
         <translation>سلام</translation>
     </message>
     <message>
@@ -2875,8 +2870,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Peercoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. Peercoin is probably already running.</source>
-        <translation>اتصال به %s از این رایانه امکان پذیر نیست. Peercoin احتمالا در حال اجراست.</translation>
+        <source>Unable to bind to %s on this computer. Xpcoin is probably already running.</source>
+        <translation>اتصال به %s از این رایانه امکان پذیر نیست. Xpcoin احتمالا در حال اجراست.</translation>
     </message>
     <message>
         <location line="+64"/>

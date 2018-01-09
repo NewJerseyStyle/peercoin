@@ -1,12 +1,8 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin Core developers
-// Copyright (c) 2011-2015 The Peercoin developers
+// Copyright (c) 2011-2015 The Xpcoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-#if defined(HAVE_CONFIG_H)
-#include "bitcoin-config.h"
-#endif
 
 #include "db.h"
 #include "net.h"
@@ -28,9 +24,6 @@
 
 // Dump addresses to peers.dat every 15 minutes (900s)
 #define DUMP_ADDRESSES_INTERVAL 900
-#if !defined(HAVE_MSG_NOSIGNAL)
-#define MSG_NOSIGNAL 0
-#endif
 
 using namespace std;
 using namespace boost;
@@ -411,7 +404,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)
 void ThreadGetMyExternalIP(void* parg)
 {
     // Make this thread recognisable as the external IP detection thread
-    RenameThread("peercoin-ext-ip");
+    RenameThread("xpcoin-ext-ip");
 
     CNetAddr addrLocalHost;
     if (GetMyExternalIP(addrLocalHost))
@@ -1126,7 +1119,7 @@ void ThreadMapPort()
             }
         }
 
-        string strDesc = "Peercoin " + FormatFullVersion();
+        string strDesc = "Xpcoin " + FormatFullVersion();
 
         try {
             loop {
@@ -1206,13 +1199,13 @@ void MapPort(bool)
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
-    {"seedpeercoin", "seed.peercoin.net"},
-    {"seed", "seed.ppcoin.net"},
+    {"seedxpcoin", "seed.xpcoin.net"},
+    {"seed", "seed.XXXoin.net"},
     {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
-    {"tseedpeercoin", "tseed.peercoin.net"},
+    {"tseedxpcoin", "tseed.xpcoin.net"},
     {NULL, NULL}
 };
 
@@ -1697,7 +1690,7 @@ bool BindListenPort(const CService &addrBind, string& strError)
     {
         int nErr = WSAGetLastError();
         if (nErr == WSAEADDRINUSE)
-            strError = strprintf(_("Unable to bind to %s on this computer. Peercoin is probably already running."), addrBind.ToString().c_str());
+            strError = strprintf(_("Unable to bind to %s on this computer. Xpcoin is probably already running."), addrBind.ToString().c_str());
         else
             strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %d, %s)"), addrBind.ToString().c_str(), nErr, strerror(nErr));
         printf("%s\n", strError.c_str());

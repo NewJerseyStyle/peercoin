@@ -1,7 +1,3 @@
-#if defined(HAVE_CONFIG_H)
-#include "bitcoin-config.h"
-#endif
-
 #include "optionsmodel.h"
 
 #include "bitcoinunits.h"
@@ -66,7 +62,7 @@ void OptionsModel::Init()
     if (!language.isEmpty())
         SoftSetArg("-lang", language.toStdString());
     if (settings.contains("fCheckpointEnforce"))
-        SoftSetBoolArg("-enforcecheckpoint", settings.value("fCheckpointEnforce").toBool());
+        SoftSetBoolArg("-checkpointenforce", settings.value("fCheckpointEnforce").toBool());
 }
 
 void OptionsModel::Reset()

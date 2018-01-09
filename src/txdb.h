@@ -6,13 +6,13 @@
 #define BITCOIN_TXDB_LEVELDB_H
 
 #include "main.h"
-#include "leveldbwrapper.h"
+#include "leveldb.h"
 
 /** CCoinsView backed by the LevelDB coin database (chainstate/) */
 class CCoinsViewDB : public CCoinsView
 {
 protected:
-    CLevelDBWrapper db;
+    CLevelDB db;
 public:
     CCoinsViewDB(size_t nCacheSize, bool fMemory = false, bool fWipe = false);
 
@@ -26,7 +26,7 @@ public:
 };
 
 /** Access to the block database (blocks/index/) */
-class CBlockTreeDB : public CLevelDBWrapper
+class CBlockTreeDB : public CLevelDB
 {
 public:
     CBlockTreeDB(size_t nCacheSize, bool fMemory = false, bool fWipe = false);

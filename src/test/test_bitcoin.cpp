@@ -1,4 +1,4 @@
-#define BOOST_TEST_MODULE Peercoin Test Suite
+#define BOOST_TEST_MODULE Xpcoin Test Suite
 #include <boost/test/unit_test.hpp>
 #include <boost/filesystem.hpp>
 
@@ -9,6 +9,7 @@
 #include "util.h"
 
 CWallet* pwalletMain;
+CClientUIInterface uiInterface;
 
 extern bool fPrintToConsole;
 extern void noui_connect();

@@ -1,7 +1,3 @@
-#if defined(HAVE_CONFIG_H)
-#include "bitcoin-config.h"
-#endif
-
 #include "optionsdialog.h"
 #include "ui_optionsdialog.h"
 
@@ -222,7 +218,7 @@ void OptionsDialog::showRestartWarning_Proxy()
 {
     if(!fRestartWarningDisplayed_Proxy)
     {
-        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Peercoin."), QMessageBox::Ok);
+        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Xpcoin."), QMessageBox::Ok);
         fRestartWarningDisplayed_Proxy = true;
     }
 }
@@ -231,7 +227,7 @@ void OptionsDialog::showRestartWarning_Lang()
 {
     if(!fRestartWarningDisplayed_Lang)
     {
-        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Peercoin."), QMessageBox::Ok);
+        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Xpcoin."), QMessageBox::Ok);
         fRestartWarningDisplayed_Lang = true;
     }
 }

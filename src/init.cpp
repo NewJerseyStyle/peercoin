@@ -1,17 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2011-2017 The Peercoin developers
+// Copyright (c) 2011-2017 The Xpcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#if defined(HAVE_CONFIG_H)
-#include "bitcoin-config.h"
-#endif
-
 #include "txdb.h"
-#include "addrman.h"
-#include "rpcserver.h"
-#include "checkpoints.h"
+#include "walletdb.h"
+#include "bitcoinrpc.h"
 #include "net.h"
 #include "init.h"
 #include "util.h"
@@ -33,6 +28,7 @@ using namespace std;
 using namespace boost;
 
 CWallet* pwalletMain;
+CClientUIInterface uiInterface;
 
 #ifdef WIN32
 // Win32 LevelDB doesn't use filedescriptors, and the ones used for
@@ -127,6 +123,17 @@ void Shutdown()
 //
 // Signal handlers are very limited in what they are allowed to do, so:
 //
+void DetectShutdownThread(boost::thread_group* threadGroup)
+{
+    // Tell the main threads to shutdown.
+    while (!fRequestShutdown)
+    {
+        MilliSleep(200);
+        if (fRequestShutdown)
+            threadGroup->interrupt_all();
+    }
+}
+
 void HandleSIGTERM(int)
 {
     fRequestShutdown = true;
@@ -136,6 +143,127 @@ void HandleSIGHUP(int)
 {
     fReopenDebugLog = true;
 }
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Start
+//
+#if !defined(QT_GUI)
+bool AppInit(int argc, char* argv[])
+{
+    boost::thread_group threadGroup;
+    boost::thread* detectShutdownThread = NULL;
+
+    bool fRet = false;
+    try
+    {
+        //
+        // Parameters
+        //
+        // If Qt is used, parameters/bitcoin.conf are parsed in qt/bitcoin.cpp's main()
+        ParseParameters(argc, argv);
+        if (!boost::filesystem::is_directory(GetDataDir(false)))
+        {
+            fprintf(stderr, "Error: Specified directory does not exist\n");
+            Shutdown();
+        }
+        ReadConfigFile(mapArgs, mapMultiArgs);
+
+        if (mapArgs.count("-?") || mapArgs.count("--help"))
+        {
+            // First part of help message is specific to bitcoind / RPC client
+            std::string strUsage = _("Xpcoin version") + " " + FormatFullVersion() + "\n\n" +
+                _("Usage:") + "\n" +
+                  "  xpcoind [options]                     " + "\n" +
+                  "  xpcoind [options] <command> [params]  " + _("Send command to -server or xpcoind") + "\n" +
+                  "  xpcoind [options] help                " + _("List commands") + "\n" +
+                  "  xpcoind [options] help <command>      " + _("Get help for a command") + "\n";
+
+            strUsage += "\n" + HelpMessage();
+
+            fprintf(stdout, "%s", strUsage.c_str());
+            return false;
+        }
+
+        // Command-line RPC
+        for (int i = 1; i < argc; i++)
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "xpcoin:") && !boost::algorithm::istarts_with(argv[i], "XXXoin:"))
+                fCommandLine = true;
+
+        if (fCommandLine)
+        {
+            int ret = CommandLineRPC(argc, argv);
+            exit(ret);
+        }
+#if !defined(WIN32)
+        fDaemon = GetBoolArg("-daemon");
+        if (fDaemon)
+        {
+            // Daemonize
+            pid_t pid = fork();
+            if (pid < 0)
+            {
+                fprintf(stderr, "Error: fork() returned %d errno %d\n", pid, errno);
+                return false;
+            }
+            if (pid > 0) // Parent process, pid is child process id
+            {
+                CreatePidFile(GetPidFile(), pid);
+                return true;
+            }
+            // Child process falls through to rest of initialization
+
+            pid_t sid = setsid();
+            if (sid < 0)
+                fprintf(stderr, "Error: setsid() returned %d errno %d\n", sid, errno);
+        }
+#endif
+
+        detectShutdownThread = new boost::thread(boost::bind(&DetectShutdownThread, &threadGroup));
+        fRet = AppInit2(threadGroup);
+    }
+    catch (std::exception& e) {
+        PrintExceptionContinue(&e, "AppInit()");
+    } catch (...) {
+        PrintExceptionContinue(NULL, "AppInit()");
+    }
+    if (!fRet) {
+        if (detectShutdownThread)
+            detectShutdownThread->interrupt();
+        threadGroup.interrupt_all();
+    }
+
+    if (detectShutdownThread)
+    {
+        detectShutdownThread->join();
+        delete detectShutdownThread;
+        detectShutdownThread = NULL;
+    }
+    Shutdown();
+
+    return fRet;
+}
+
+extern void noui_connect();
+int main(int argc, char* argv[])
+{
+    bool fRet = false;
+
+    // Connect bitcoind signal handlers
+    noui_connect();
+
+    fRet = AppInit(argc, argv);
+
+    if (fRet && fDaemon)
+        return 0;
+
+    return (fRet ? 0 : 1);
+}
+#endif
 
 bool static InitError(const std::string &str)
 {
@@ -162,12 +290,12 @@ bool static Bind(const CService &addr, unsigned int flags) {
 }
 
 // Core-specific options shared between UI and daemon
-std::string HelpMessage(HelpMessageMode hmm)
+std::string HelpMessage()
 {
     string strUsage = _("Options:") + "\n" +
         "  -?                     " + _("This help message") + "\n" +
-        "  -conf=<file>           " + _("Specify configuration file (default: peercoin.conf)") + "\n" +
-        "  -pid=<file>            " + _("Specify pid file (default: peercoind.pid)") + "\n" +
+        "  -conf=<file>           " + _("Specify configuration file (default: xpcoin.conf)") + "\n" +
+        "  -pid=<file>            " + _("Specify pid file (default: xpcoind.pid)") + "\n" +
         "  -gen                   " + _("Generate coins (default: 0)") + "\n" +
         "  -nominting             " + _("Disable minting of POS blocks") + "\n" +
         "  -datadir=<dir>         " + _("Specify data directory") + "\n" +
@@ -204,43 +332,28 @@ std::string HelpMessage(HelpMessageMode hmm)
 #endif
 #endif
         "  -paytxfee=<amt>        " + _("Fee per KB to add to transactions you send") + "\n" +
-        "  -debug=<category>      " + _("Output debugging information (default: 0, supplying <category> is optional)") + "\n" +
-                                      _("If <category> is not supplied, output all debugging information.") + "\n" +
-                                      _("<category> can be:") +
-                                        " addrman, alert, coindb, db, lock, rand, rpc, selectcoins, mempool, net"; // Don't translate these and qt below
-    if (hmm == HMM_BITCOIN_QT)
-    {
-        strUsage +=                     ", qt.\n";
-    }
-    else
-    {
-        strUsage +=                     ".\n";
-    }
-    strUsage +=  
+#ifdef QT_GUI
+        "  -server                " + _("Accept command line and JSON-RPC commands") + "\n" +
+#endif
+#if !defined(WIN32) && !defined(QT_GUI)
+        "  -daemon                " + _("Run in the background as a daemon and accept commands") + "\n" +
+#endif
+        "  -testnet               " + _("Use the test network") + "\n" +
+        "  -debug                 " + _("Output extra debugging information. Implies all other -debug* options") + "\n" +
+        "  -debugnet              " + _("Output extra network debugging information") + "\n" +
         "  -logtimestamps         " + _("Prepend debug output with timestamp (default: 1)") + "\n" +
         "  -shrinkdebugfile       " + _("Shrink debug.log file on client startup (default: 1 when no -debug)") + "\n" +
         "  -printtoconsole        " + _("Send trace/debug info to console instead of debug.log file") + "\n" +
-        "  -regtest               " + _("Enter regression test mode, which uses a special chain in which blocks can be "
-                                            "solved instantly. This is intended for regression testing tools and app development.") + "\n";
 #ifdef WIN32
-        strUsage += 
-        "  -printtodebugger       " + _("Send trace/debug info to debugger") + "\n"
+        "  -printtodebugger       " + _("Send trace/debug info to debugger") + "\n" +
 #endif
-
-    if (hmm == HMM_BITCOIN_QT)
-    {
-        strUsage += 
-        "  -server                " + _("Accept command line and JSON-RPC commands") + "\n";
-    }
-
-    if (hmm == HMM_BITCOIND)
-    {
-#if !defined(WIN32)
-        strUsage += 
-        "  -daemon                " + _("Run in the background as a daemon and accept commands") + "\n";
+        "  -rpcuser=<user>        " + _("Username for JSON-RPC connections") + "\n" +
+        "  -rpcpassword=<pw>      " + _("Password for JSON-RPC connections") + "\n" +
+        "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 9902)") + "\n" +
+        "  -rpcallowip=<ip>       " + _("Allow JSON-RPC connections from specified IP address") + "\n" +
+#ifndef QT_GUI
+        "  -rpcconnect=<ip>       " + _("Send commands to node running on <ip> (default: 127.0.0.1)") + "\n" +
 #endif
-    }
-        strUsage +=
         "  -rpcthreads=<n>        " + _("Set the number of threads to service RPC calls (default: 4)") + "\n" +
         "  -blocknotify=<cmd>     " + _("Execute command when the best block changes (%s in cmd is replaced by block hash)") + "\n" +
         "  -walletnotify=<cmd>    " + _("Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)") + "\n" +
@@ -286,7 +399,7 @@ struct CImportingNow
 
 void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 {
-    RenameThread("peercoin-loadblk");
+    RenameThread("xpcoin-loadblk");
 
     // -reindex
     if (fReindex) {
@@ -493,7 +606,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     // 1-satoshi-fee transactions. It should be set above the real
     // cost to you of processing a transaction.
     //
-    // ppcoin: -mintxfee and -minrelaytxfee options of bitcoin disabled
+    // XXXoin: -mintxfee and -minrelaytxfee options of bitcoin disabled
     // fixed min fees defined in MIN_TX_FEE and MIN_RELAY_TX_FEE
 
     if (mapArgs.count("-paytxfee"))
@@ -504,7 +617,7 @@ bool AppInit2(boost::thread_group& threadGroup)
             InitWarning(_("Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction."));
     }
 
-    if (mapArgs.count("-checkpointkey")) // ppcoin: checkpoint master priv key
+    if (mapArgs.count("-checkpointkey")) // XXXoin: checkpoint master priv key
     {
         if (!SetCheckpointPrivKey(GetArg("-checkpointkey", "")))
             return InitError(_("Unable to sign checkpoint, wrong checkpointkey?"));
@@ -520,12 +633,12 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (file) fclose(file);
     static boost::interprocess::file_lock lock(pathLockFile.string().c_str());
     if (!lock.try_lock())
-        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Peercoin is probably already running."), strDataDir.c_str()));
+        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Xpcoin is probably already running."), strDataDir.c_str()));
 
     if (GetBoolArg("-shrinkdebugfile", !fDebug))
         ShrinkDebugFile();
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    printf("Peercoin version %s (%s)\n", FormatFullVersion().c_str(), CLIENT_DATE.c_str());
+    printf("Xpcoin version %s (%s)\n", FormatFullVersion().c_str(), CLIENT_DATE.c_str());
     printf("Using OpenSSL version %s\n", SSLeay_version(SSLEAY_VERSION));
     if (!fLogTimestamps)
         printf("Startup time: %s\n", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", GetTime()).c_str());
@@ -535,7 +648,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     std::ostringstream strErrors;
 
     if (fDaemon)
-        fprintf(stdout, "Peercoin server starting\n");
+        fprintf(stdout, "Xpcoin server starting\n");
 
     if (nScriptCheckThreads) {
         printf("Using %u threads for script verification\n", nScriptCheckThreads);
@@ -870,10 +983,10 @@ bool AppInit2(boost::thread_group& threadGroup)
             InitWarning(msg);
         }
         else if (nLoadWalletRet == DB_TOO_NEW)
-            strErrors << _("Error loading wallet.dat: Wallet requires newer version of Peercoin") << "\n";
+            strErrors << _("Error loading wallet.dat: Wallet requires newer version of Xpcoin") << "\n";
         else if (nLoadWalletRet == DB_NEED_REWRITE)
         {
-            strErrors << _("Wallet needed to be rewritten: restart Peercoin to complete") << "\n";
+            strErrors << _("Wallet needed to be rewritten: restart Xpcoin to complete") << "\n";
             printf("%s", strErrors.str().c_str());
             return InitError(strErrors.str());
         }
@@ -1000,7 +1113,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     // Generate coins in the background
     GenerateBitcoins(GetBoolArg("-gen", false), pwalletMain);
 
-    // ppcoin: mint proof-of-stake blocks in the background
+    // XXXoin: mint proof-of-stake blocks in the background
 #ifdef TESTING
     if (GetBoolArg("-stakegen", true))
 #endif

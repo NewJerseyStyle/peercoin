@@ -1,6 +1,6 @@
 /*
  * W.J. van der Laan 2011-2012
- * The Peercoin developers 2013-2017
+ * The Xpcoin developers 2013-2017
  */
 
 #include <QApplication>
@@ -111,7 +111,7 @@ static std::string Translate(const char* psz)
 static void handleRunawayException(std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
-    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. Peercoin can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
+    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. Xpcoin can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
     exit(1);
 }
 
@@ -121,8 +121,8 @@ int main(int argc, char *argv[])
     // Command-line options take precedence:
     ParseParameters(argc, argv);
 
-#if QT_VERSION < 0x050000
     // Internal string conversion is all UTF-8
+#if QT_VERSION < 0x050000
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForCStrings(QTextCodec::codecForTr());
 #endif
@@ -155,12 +155,12 @@ int main(int argc, char *argv[])
 
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
-    QApplication::setOrganizationName("Peercoin");
-    QApplication::setOrganizationDomain("peercoin.net");
+    QApplication::setOrganizationName("Xpcoin");
+    QApplication::setOrganizationDomain("xpcoin.net");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
-        QApplication::setApplicationName("Peercoin-Testnet");
+        QApplication::setApplicationName("Xpcoin-Testnet");
     else
-        QApplication::setApplicationName("Peercoin");
+        QApplication::setApplicationName("Xpcoin");
 
     // ... then GUI settings:
     OptionsModel optionsModel;

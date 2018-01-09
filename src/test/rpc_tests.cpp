@@ -1,14 +1,10 @@
-#include "rpcserver.h"
-#include "rpcclient.h"
-
-#include "base58.h"
-
 #include <boost/algorithm/string.hpp>
 #include <boost/foreach.hpp>
 #include <boost/test/unit_test.hpp>
 
 #include "base58.h"
 #include "util.h"
+#include "bitcoinrpc.h"
 
 using namespace std;
 using namespace json_spirit;
@@ -116,7 +112,7 @@ BOOST_AUTO_TEST_CASE(rpc_rawparams)
     BOOST_CHECK_EQUAL(find_value(r.get_obj(), "version").get_int(), 1);
     BOOST_CHECK_EQUAL(find_value(r.get_obj(), "locktime").get_int(), 0);
     BOOST_CHECK_THROW(r = CallRPC(string("decoderawtransaction ")+rawtx+" extra"), runtime_error);
-    // ppcoin: serialize transaction time
+    // XXXoin: serialize transaction time
     BOOST_CHECK_EQUAL(find_value(r.get_obj(), "time").get_int(), 1488805154);
 
     BOOST_CHECK_THROW(CallRPC("signrawtransaction"), runtime_error);

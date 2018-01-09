@@ -1,4 +1,4 @@
-// Copyright (c) 2012-2017 The Peercoin developers
+// Copyright (c) 2012-2017 The Xpcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -37,7 +37,6 @@ static std::map<int, unsigned int> mapStakeModifierCheckpoints =
     ( 30583, 0xdc7bf136u )
     ( 99999, 0xf555cfd2u )
     (219999, 0x91b7444du )
-    (336000, 0x6c3c8048u )
     ;
 
 // Whether the given coinstake is subject to new v0.3 protocol
@@ -364,7 +363,7 @@ static bool GetKernelStakeModifier(uint256 hashBlockFrom, unsigned int nTimeTx, 
         return GetKernelStakeModifierV03(hashBlockFrom, nStakeModifier, nStakeModifierHeight, nStakeModifierTime, fPrintProofOfStake);
 }
 
-// ppcoin kernel protocol
+// XXXoin kernel protocol
 // coinstake must meet hash target according to the protocol:
 // kernel (input 0) must meet the formula
 //     hash(nStakeModifier + txPrev.block.nTime + txPrev.offset + txPrev.nTime + txPrev.vout.n + nTime) < bnTarget * nCoinDayWeight
