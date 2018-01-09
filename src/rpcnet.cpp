@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2013-2017 The Peercoin developers
+// Copyright (c) 2013-2017 The Xpcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "rpcserver.h"
 #include "net.h"
+#include "bitcoinrpc.h"
 #include "alert.h"
 #include "base58.h"
 
@@ -208,7 +208,7 @@ Value getaddednodeinfo(const Array& params, bool fHelp)
     return ret;
 }
 
-// ppcoin: make a public-private key pair
+// XXXoin: make a public-private key pair
 Value makekeypair(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
@@ -242,7 +242,7 @@ Value makekeypair(const Array& params, bool fHelp)
     return result;
 }
 
-// ppcoin: display key pair from hex private key
+// XXXoin: display key pair from hex private key
 Value showkeypair(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
@@ -274,7 +274,7 @@ Value showkeypair(const Array& params, bool fHelp)
     return result;
 }
 
-// ppcoin: send alert.  
+// XXXoin: send alert.  
 // There is a known deadlock situation with ThreadMessageHandler
 // ThreadMessageHandler: holds cs_vSend and acquiring cs_main in SendMessages()
 // ThreadRPCServer: holds cs_main and acquiring cs_vSend in alert.RelayTo()/PushMessage()/BeginMessage()

@@ -2,7 +2,7 @@
 
 #include "main.h"
 #include "init.h"
-#include "rpcserver.h"
+#include "bitcoinrpc.h"
 #include "kernelrecord.h"
 
 using namespace json_spirit;
