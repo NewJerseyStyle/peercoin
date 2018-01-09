@@ -16,7 +16,7 @@
     </message>
     <message>
         <location line="+41"/>
-        <source>Copyright &amp;copy; 2011-YYYY Xpcoin Developers</source>
+        <source>Copyright &amp;copy; 2011-YYYY Bitcoin Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
